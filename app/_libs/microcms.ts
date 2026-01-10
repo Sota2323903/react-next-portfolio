@@ -1,84 +1,86 @@
 import { createClient } from "microcms-js-sdk";
 import type {
-    MicroCMSQueries,
-    MicroCMSImage,
-    MicroCMSListContent,
+  MicroCMSQueries,
+  MicroCMSImage,
+  MicroCMSListContent,
 } from "microcms-js-sdk";
 
-export type Member = {
-    name: string;
-    position: string;
-    profile: string;
-    image: MicroCMSImage;
+export type Dream = {
+  title: string;
+  description: string;
+  content: string;
+  image?: MicroCMSImage;
 } & MicroCMSListContent;
 
-export type Category = {
-    name: string;
-} & MicroCMSListContent;
-
-export type News = {
-    title: string;
-    description: string;
-    content: string;
-    thumbnail: MicroCMSImage;
-    category: Category;
+export type Profile = {
+  title: string;
+  name?: string;
+  introduction?: string;
+  content?: string;
+  image?: MicroCMSImage;
 } & MicroCMSListContent;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
-    throw new Error("MICROCMS_SERVICE_DOMAIN is required");
+  throw new Error("MICROCMS_SERVICE_DOMAIN is required");
 }
 
 if (!process.env.MICROCMS_API_KEY) {
-    throw new Error("MICROCMS_API_KEY is required");
+  throw new Error("MICROCMS_API_KEY is required");
 }
 
 const client = createClient({
-    serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-    apiKey: process.env.MICROCMS_API_KEY,
+  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
+  apiKey: process.env.MICROCMS_API_KEY,
 });
 
-export const getMembersList = async (queries?: MicroCMSQueries) => {
-    const listData = await client
-        .getList<Member>({ 
-            endpoint: "members",
-            queries,
-        });
-    return listData;
-};
-export const getNewsList = async (queries?: MicroCMSQueries) => {
-    const listData = await client
-        .getList<News>({ 
-            endpoint: "news",
-            queries,
-        });
-    return listData;
+// 夢コンテンツの取得
+export const getDreamList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Dream>({
+    endpoint: "dream",
+    queries,
+  });
+  return listData;
 };
 
-export const getNewsDetail = async (
-    contentId: string,
-    queries?: MicroCMSQueries
+export const getDreamDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
 ) => {
-    const detailData = await client.getListDetail<News>({
-        endpoint: "news",
-        contentId,
-        queries,
-    });
-    return detailData;
+  const detailData = await client.getListDetail<Dream>({
+    endpoint: "dream",
+    contentId,
+    queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
+  });
+  return detailData;
 };
 
-export const getCategoryDetail = async (
-    contentId: string,
-    queries?: MicroCMSQueries
+// 自己紹介コンテンツの取得
+export const getProfileList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Profile>({
+    endpoint: "profile",
+    queries,
+  });
+  return listData;
+};
+
+export const getProfileDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
 ) => {
-    const detailData = await client.getListDetail<Category>({
-        endpoint: "categories",
-        contentId,
-        queries,
-        customRequestInit: {
-            next: {
-                revalidate: queries?.draftKey === undefined ? 60 : 0,
-            }
-        }
-    });
-    return detailData;
+  const detailData = await client.getListDetail<Profile>({
+    endpoint: "profile",
+    contentId,
+    queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
+  });
+  return detailData;
 };

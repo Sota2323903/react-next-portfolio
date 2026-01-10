@@ -1,0 +1,48 @@
+.container {
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+}
+
+.content {
+  line-height: 1.8;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem;
+}
+
+.content p {
+  margin-bottom: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}

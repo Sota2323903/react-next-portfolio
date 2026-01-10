@@ -2,12 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./index.module.css";
-import Category from "../Category";
 import Date from "../Date";
-import { News } from "@/app/_libs/microcms";
+import { Dream } from "@/app/_libs/microcms";
 
 type Props = {
-  news: News[];
+  news: Dream[];
 };
 
 export default function NewsList({ news }: Props) {
@@ -18,14 +17,14 @@ export default function NewsList({ news }: Props) {
     <ul>
       {news.map((article) => (
         <li key={article.id} className={styles.list}>
-          <Link href={`/news/${article.id}`} className={styles.link}>
-            {article.thumbnail ? (
+          <Link href={`/dream/${article.id}`} className={styles.link}>
+            {article.image ? (
               <Image
-                src={article.thumbnail.url}
+                src={article.image.url}
                 alt=""
                 className={styles.image}
-                width={article.thumbnail.width}
-                height={article.thumbnail.height}
+                width={article.image.width}
+                height={article.image.height}
               />
             ) : (
               <Image
@@ -39,7 +38,6 @@ export default function NewsList({ news }: Props) {
             <dl className={styles.content}>
               <dt className={styles.title}>{article.title}</dt>
               <dd className={styles.meta}>
-                <Category category={article.category} />
                 <Date date={article.publishedAt ?? article.createdAt} />
               </dd>
             </dl>
