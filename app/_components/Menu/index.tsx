@@ -21,6 +21,12 @@ export default function Menu() {
           <li>
             <Link href="/profile">自己紹介</Link>
           </li>
+          <li>
+            <Link href="/qualification">資格</Link>
+          </li>
+          <li>
+            <Link href="/experience">経験</Link>
+          </li>
         </ul>
         <button className={cx(styles.button, styles.close)} onClick={close}>
           <Image

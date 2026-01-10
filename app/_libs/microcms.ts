@@ -20,6 +20,23 @@ export type Profile = {
   image?: MicroCMSImage;
 } & MicroCMSListContent;
 
+export type Qualification = {
+  title: string;
+  issuer?: string;
+  date?: string;
+  description?: string;
+  image?: MicroCMSImage;
+} & MicroCMSListContent;
+
+export type Experience = {
+  title: string;
+  company?: string;
+  position?: string;
+  period?: string;
+  description?: string;
+  image?: MicroCMSImage;
+} & MicroCMSListContent;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error("MICROCMS_SERVICE_DOMAIN is required");
 }
@@ -74,6 +91,58 @@ export const getProfileDetail = async (
 ) => {
   const detailData = await client.getListDetail<Profile>({
     endpoint: "profile",
+    contentId,
+    queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
+  });
+  return detailData;
+};
+
+// 資格コンテンツの取得
+export const getQualificationList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Qualification>({
+    endpoint: "qualification",
+    queries,
+  });
+  return listData;
+};
+
+export const getQualificationDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  const detailData = await client.getListDetail<Qualification>({
+    endpoint: "qualification",
+    contentId,
+    queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
+  });
+  return detailData;
+};
+
+// 経験コンテンツの取得
+export const getExperienceList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Experience>({
+    endpoint: "experience",
+    queries,
+  });
+  return listData;
+};
+
+export const getExperienceDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  const detailData = await client.getListDetail<Experience>({
+    endpoint: "experience",
     contentId,
     queries,
     customRequestInit: {
