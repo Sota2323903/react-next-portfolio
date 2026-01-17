@@ -13,6 +13,9 @@ export default function Footer() {
             <Link href="/profile">自己紹介</Link>
           </li>
           <li className={styles.item}>
+            <Link href="/works">作品</Link>
+          </li>
+          <li className={styles.item}>
             <Link href="/qualification">資格</Link>
           </li>
         </ul>

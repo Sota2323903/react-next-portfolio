@@ -40,7 +40,39 @@ body {
     sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg-main);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(58, 112, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(0, 212, 255, 0.15), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(120, 160, 255, 0.12), transparent 50%),
+    linear-gradient(180deg, rgba(6, 10, 20, 0.9) 0%, rgba(6, 10, 20, 0.95) 40%, rgba(5, 8, 16, 1) 100%);
   line-height: 1.8;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgba(120, 160, 255, 0.12), transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 code {

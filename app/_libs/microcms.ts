@@ -27,6 +27,13 @@ export type Qualification = {
   image?: MicroCMSImage;
 } & MicroCMSListContent;
 
+export type Work = {
+  title: string;
+  description?: string;
+  url?: string;
+  image?: MicroCMSImage;
+} & MicroCMSListContent;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error("MICROCMS_SERVICE_DOMAIN is required");
 }
@@ -116,4 +123,13 @@ export const getQualificationDetail = async (
     },
   });
   return detailData;
+};
+
+// 作品コンテンツの取得
+export const getWorksList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Work>({
+    endpoint: "works",
+    queries,
+  });
+  return listData;
 };

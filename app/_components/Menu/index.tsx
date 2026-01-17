@@ -22,6 +22,9 @@ export default function Menu() {
             <Link href="/profile">自己紹介</Link>
           </li>
           <li>
+            <Link href="/works">作品</Link>
+          </li>
+          <li>
             <Link href="/qualification">資格</Link>
           </li>
         </ul>
