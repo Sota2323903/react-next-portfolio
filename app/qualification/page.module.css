@@ -21,11 +21,18 @@
 
 .item {
   position: relative;
-  background: linear-gradient(145deg, rgba(10, 16, 32, 0.9), rgba(8, 12, 24, 0.75));
+  background: linear-gradient(
+    145deg,
+    rgba(10, 16, 32, 0.9),
+    rgba(8, 12, 24, 0.75)
+  );
   border: 1px solid rgba(120, 160, 255, 0.28);
   border-radius: 14px;
   padding: 1.6rem;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .item::before {
@@ -33,7 +40,11 @@
   position: absolute;
   inset: 0;
   border-radius: 14px;
-  background: radial-gradient(circle at top left, rgba(120, 160, 255, 0.18), transparent 60%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(120, 160, 255, 0.18),
+    transparent 60%
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;

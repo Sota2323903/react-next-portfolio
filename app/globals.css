@@ -1,5 +1,6 @@
 :root {
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+  --font-mono:
+    ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
@@ -35,16 +36,41 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic,
-    "ヒラギノ角ゴ ProN W3", Hiragino kaku Gothic ProN, Arial, "メイリオ", Meiryo,
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    YuGothic,
+    "ヒラギノ角ゴ ProN W3",
+    Hiragino kaku Gothic ProN,
+    Arial,
+    "メイリオ",
+    Meiryo,
     sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg-main);
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(58, 112, 255, 0.18), transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(0, 212, 255, 0.15), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(120, 160, 255, 0.12), transparent 50%),
-    linear-gradient(180deg, rgba(6, 10, 20, 0.9) 0%, rgba(6, 10, 20, 0.95) 40%, rgba(5, 8, 16, 1) 100%);
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(58, 112, 255, 0.18),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(0, 212, 255, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(120, 160, 255, 0.12),
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(6, 10, 20, 0.9) 0%,
+      rgba(6, 10, 20, 0.95) 40%,
+      rgba(5, 8, 16, 1) 100%
+    );
   line-height: 1.8;
   position: relative;
   min-height: 100vh;
@@ -70,7 +96,11 @@ body::after {
   inset: 0;
   background:
     radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.12), transparent 45%),
-    radial-gradient(circle at 0% 100%, rgba(120, 160, 255, 0.12), transparent 50%);
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(120, 160, 255, 0.12),
+      transparent 50%
+    );
   pointer-events: none;
   z-index: -1;
 }
