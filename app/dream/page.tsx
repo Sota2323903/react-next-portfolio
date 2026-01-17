@@ -8,8 +8,6 @@ export default async function Page() {
     limit: DREAM_LIST_LIMIT,
   });
 
-  console.log("Dream data:", JSON.stringify({ dreams, totalCount }, null, 2));
-
   return (
     <>
       <NewsList news={dreams} />

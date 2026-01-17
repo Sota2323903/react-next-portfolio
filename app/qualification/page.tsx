@@ -7,9 +7,6 @@ const QUALIFICATION_LIST_LIMIT = 20;
 export default async function Page() {
   const data = await getQualificationList({ limit: QUALIFICATION_LIST_LIMIT });
 
-  // デバッグ用のログ
-  console.log("Qualification data:", JSON.stringify(data, null, 2));
-
   return (
     <div className={styles.container}>
       {data.contents.length === 0 ? (
@@ -37,11 +34,16 @@ export default async function Page() {
                 {qualification.date && (
                   <p className={styles.date}>取得日: {qualification.date}</p>
                 )}
-                {qualification.description && (
-                  <p className={styles.description}>
-                    {qualification.description}
-                  </p>
-                )}
+                {qualification.description &&
+                  typeof qualification.description === "string" && (
+                    <div className={styles.description}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: qualification.description,
+                        }}
+                      />
+                    </div>
+                  )}
               </div>
             </li>
           ))}

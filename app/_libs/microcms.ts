@@ -14,25 +14,15 @@ export type Dream = {
 
 export type Profile = {
   title: string;
-  name?: string;
-  introduction?: string;
-  content?: string;
-  image?: MicroCMSImage;
+  name: string;
+  introduction: string;
+  image: MicroCMSImage;
 } & MicroCMSListContent;
 
 export type Qualification = {
   title: string;
   issuer?: string;
   date?: string;
-  description?: string;
-  image?: MicroCMSImage;
-} & MicroCMSListContent;
-
-export type Experience = {
-  title: string;
-  company?: string;
-  position?: string;
-  period?: string;
   description?: string;
   image?: MicroCMSImage;
 } & MicroCMSListContent;
@@ -61,7 +51,7 @@ export const getDreamList = async (queries?: MicroCMSQueries) => {
 
 export const getDreamDetail = async (
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   const detailData = await client.getListDetail<Dream>({
     endpoint: "dream",
@@ -87,7 +77,7 @@ export const getProfileList = async (queries?: MicroCMSQueries) => {
 
 export const getProfileDetail = async (
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   const detailData = await client.getListDetail<Profile>({
     endpoint: "profile",
@@ -113,36 +103,10 @@ export const getQualificationList = async (queries?: MicroCMSQueries) => {
 
 export const getQualificationDetail = async (
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   const detailData = await client.getListDetail<Qualification>({
     endpoint: "qualification",
-    contentId,
-    queries,
-    customRequestInit: {
-      next: {
-        revalidate: queries?.draftKey === undefined ? 60 : 0,
-      },
-    },
-  });
-  return detailData;
-};
-
-// 経験コンテンツの取得
-export const getExperienceList = async (queries?: MicroCMSQueries) => {
-  const listData = await client.getList<Experience>({
-    endpoint: "experience",
-    queries,
-  });
-  return listData;
-};
-
-export const getExperienceDetail = async (
-  contentId: string,
-  queries?: MicroCMSQueries
-) => {
-  const detailData = await client.getListDetail<Experience>({
-    endpoint: "experience",
     contentId,
     queries,
     customRequestInit: {

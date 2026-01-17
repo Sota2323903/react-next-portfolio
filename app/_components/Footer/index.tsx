@@ -15,9 +15,6 @@ export default function Footer() {
           <li className={styles.item}>
             <Link href="/qualification">資格</Link>
           </li>
-          <li className={styles.item}>
-            <Link href="/experience">経験</Link>
-          </li>
         </ul>
       </nav>
       <p className={styles.cr}>© SIMPLE. ALL Rights Reserved 2024</p>

@@ -27,7 +27,9 @@ export default async function Page({ params, searchParams }: Props) {
     <>
       <div className={styles.container}>
         <h1 className={styles.title}>{data.title}</h1>
-        <p className={styles.description}>{data.description}</p>
+        {typeof data.description === "string" && (
+          <p className={styles.description}>{data.description}</p>
+        )}
         <div className={styles.meta}>
           <Date date={data.publishedAt ?? data.createdAt} />
         </div>
@@ -40,9 +42,11 @@ export default async function Page({ params, searchParams }: Props) {
             className={styles.image}
           />
         )}
-        <div className={styles.content}>
-          <p>{data.content}</p>
-        </div>
+        {typeof data.content === "string" && (
+          <div className={styles.content}>
+            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+          </div>
+        )}
       </div>
       <div className={styles.footer}>
         <ButtonLink href="/dream">夢一覧へ</ButtonLink>
