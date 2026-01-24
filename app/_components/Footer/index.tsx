@@ -20,7 +20,7 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <p className={styles.cr}>© Ogawa Sota. All Rights Reserved 2024</p>
+      <p className={styles.cr}>© Ogawa Sota. All Rights Reserved 2026</p>
     </footer>
   );
 }
