@@ -7,9 +7,7 @@ import type {
 
 export type Dream = {
   title: string;
-  description: string;
-  content: string;
-  image?: MicroCMSImage;
+  syasinn?: MicroCMSImage;
 } & MicroCMSListContent;
 
 export type Profile = {
@@ -29,9 +27,7 @@ export type Qualification = {
 
 export type Work = {
   title: string;
-  description?: string;
-  url?: string;
-  image?: MicroCMSImage;
+  syasinn?: MicroCMSImage;
 } & MicroCMSListContent;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {

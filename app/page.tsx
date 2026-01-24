@@ -2,7 +2,6 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import { getDreamList } from "@/app/_libs/microcms";
 import { TOP_NEWS_LIST } from "@/app/_constants";
-import NewsList from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";
 import HeroSlider from "@/app/_components/HeroSlider";
 
@@ -60,7 +59,22 @@ export default async function Home() {
             DREAMS
             <span className={styles.titleLine}></span>
           </h2>
-          <NewsList news={data.contents} />
+          <ul className={styles.dreamList}>
+            {data.contents.map((dream) => (
+              <li key={dream.id} className={styles.dreamItem}>
+                {dream.syasinn?.url && (
+                  <Image
+                    src={dream.syasinn.url}
+                    alt={dream.title}
+                    width={dream.syasinn.width || 400}
+                    height={dream.syasinn.height || 300}
+                    className={styles.dreamImage}
+                  />
+                )}
+                <p className={styles.dreamTitle}>{dream.title}</p>
+              </li>
+            ))}
+          </ul>
           <div className={styles.buttonCenter}>
             <ButtonLink href="/dream">もっと見る</ButtonLink>
           </div>
