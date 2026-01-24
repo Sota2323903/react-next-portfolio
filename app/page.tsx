@@ -4,6 +4,7 @@ import { getDreamList } from "@/app/_libs/microcms";
 import { TOP_NEWS_LIST } from "@/app/_constants";
 import NewsList from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";
+import HeroSlider from "@/app/_components/HeroSlider";
 
 export const revalidate = 60;
 
@@ -15,6 +16,7 @@ export default async function Home() {
   return (
     <>
       <section className={styles.hero}>
+        <HeroSlider />
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
             <span className={styles.titleMain}>MY PORTFOLIO</span>
@@ -34,7 +36,6 @@ export default async function Home() {
             priority
           />
         </div>
-        <div className={styles.heroOverlay}></div>
       </section>
 
       <section className={styles.about}>
