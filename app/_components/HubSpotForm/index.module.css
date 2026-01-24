@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  color: #333; /* HubSpot forms usually look better with dark text on light bg */
+}
+
+.formContainer {
+  min-height: 200px;
+}
