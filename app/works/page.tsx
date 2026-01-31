@@ -26,6 +26,18 @@ export default async function Page() {
               )}
               <div className={styles.content}>
                 <h2 className={styles.title}>{work.title}</h2>
+                {work.url && (
+                  <div className={styles.linkWrapper}>
+                    <a
+                      href={work.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.link}
+                    >
+                      {work.url}
+                    </a>
+                  </div>
+                )}
               </div>
             </li>
           ))}

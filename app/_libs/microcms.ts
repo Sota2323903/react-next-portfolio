@@ -28,6 +28,7 @@ export type Qualification = {
 export type Work = {
   title: string;
   syasinn?: MicroCMSImage;
+  url?: string;
 } & MicroCMSListContent;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
