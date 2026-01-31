@@ -18,13 +18,13 @@ export default function NewsList({ news }: Props) {
       {news.map((article) => (
         <li key={article.id} className={styles.list}>
           <Link href={`/dream/${article.id}`} className={styles.link}>
-            {article.image ? (
+            {article.syasinn ? (
               <Image
-                src={article.image.url}
+                src={article.syasinn.url}
                 alt=""
                 className={styles.image}
-                width={article.image.width}
-                height={article.image.height}
+                width={article.syasinn.width}
+                height={article.syasinn.height}
               />
             ) : (
               <Image

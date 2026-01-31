@@ -33,12 +33,12 @@ export default async function Page({ params, searchParams }: Props) {
         <div className={styles.meta}>
           <Date date={data.publishedAt ?? data.createdAt} />
         </div>
-        {data.image && (
+        {data.syasinn && (
           <Image
-            src={data.image.url}
+            src={data.syasinn.url}
             alt=""
-            width={data.image.width}
-            height={data.image.height}
+            width={data.syasinn.width}
+            height={data.syasinn.height}
             className={styles.image}
           />
         )}

@@ -7,6 +7,8 @@ import type {
 
 export type Dream = {
   title: string;
+  description?: string;
+  content?: string;
   syasinn?: MicroCMSImage;
 } & MicroCMSListContent;
 
