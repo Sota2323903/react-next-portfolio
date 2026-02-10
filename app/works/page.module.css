@@ -105,3 +105,18 @@
 .link:hover {
   color: #e7f2ff;
 }
+
+@media (max-width: 640px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .content {
+    padding: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+}

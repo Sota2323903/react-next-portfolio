@@ -55,3 +55,30 @@
   justify-content: center;
   margin-top: 3rem;
 }
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem 0;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.25rem;
+  }
+
+  .footer {
+    margin-top: 2rem;
+  }
+}

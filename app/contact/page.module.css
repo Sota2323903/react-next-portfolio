@@ -70,3 +70,26 @@
   box-shadow: 0 6px 20px rgba(0, 119, 255, 0.6);
   filter: brightness(1.1);
 }
+
+@media (max-width: 640px) {
+  .form {
+    padding: 0 1rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .button {
+    width: 100%;
+    min-width: unset;
+    padding: 12px 24px;
+  }
+
+  .text {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+}
